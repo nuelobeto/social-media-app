@@ -2,19 +2,28 @@ import "../assets/styles/Auth.scss";
 import Main from "./../components/Main";
 import logo from "../assets/images/logo.png";
 import BaseInput from "./../components/BaseInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdOutlineMail, MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoMdEyeOff } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { formValidator } from "./../helpers/formValidation";
+import { toast } from "react-toastify";
+import { useAppSelector, useAppDispatch } from "./../app/hooks";
+import { register } from "../features/authSlice";
+import { RegisterUserType } from "../types/authTypes";
 
 const Register = () => {
+  const { user, users } = useAppSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -23,19 +32,43 @@ const Register = () => {
   const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const payload = {
+    const payload: RegisterUserType = {
+      id: Date.now(),
       name: formData.name,
       email: formData.email,
       password: formData.password,
     };
 
+    const existingUser = users.find((user) => user.email === formData.email);
+
     if (formValidator(formData)) {
-      console.log({ message: "Error!!" });
-    } else {
-      console.log({ payload });
-      console.log(Object.values(formData));
+      toast.warn("Please fill all fields.");
+      return;
     }
+
+    if (existingUser) {
+      toast.error("An Error occured!");
+      return;
+    }
+
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      dispatch(register(payload));
+      setFormData({
+        name: "",
+        email: "",
+        password: "",
+      });
+      localStorage.setItem("user", JSON.stringify(payload));
+    }, 3000);
   };
+
+  useEffect(() => {
+    if (user !== null) {
+      navigate("/home");
+    }
+  }, [navigate, user]);
 
   return (
     <Main>
@@ -76,7 +109,7 @@ const Register = () => {
               icon={!showPassword ? <IoMdEyeOff /> : <MdOutlineRemoveRedEye />}
               handleClick={handleShowPassword}
             />
-            <button type="submit">Log in</button>
+            <button type="submit">{loading ? "Loading..." : "Sign up"}</button>
             <p>
               Don't have an Account Yet? <Link to="/login">Login</Link>
             </p>
