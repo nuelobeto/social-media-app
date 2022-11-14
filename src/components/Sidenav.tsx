@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 import { MdOutlineExplore } from "react-icons/md";
 import { TbMessages } from "react-icons/tb";
 import { FaUserCircle } from "react-icons/fa";
-import { IoMdHeart } from "react-icons/io";
 import { BiLogOut } from "react-icons/bi";
 import { useAppDispatch } from "../app/hooks";
 import { logout } from "../features/authSlice";

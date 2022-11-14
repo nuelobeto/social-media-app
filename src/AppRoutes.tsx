@@ -6,18 +6,29 @@ import { useAppSelector } from "./app/hooks";
 import Home from "./pages/Home";
 import Sidenav from "./components/Sidenav";
 import Header from "./components/Header";
+import { useEffect, useState } from "react";
+import MobileNav from "./components/MobileNav";
 
 const AppRoutes = () => {
   const { user } = useAppSelector((state) => state.auth);
   const { pathname } = useLocation();
   const pathExclusionArray = ["/", "/register", "/login"];
+  const [viewportWidth, setviewPortWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setviewPortWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+  }, [viewportWidth]);
 
   return (
     <>
       {pathExclusionArray.indexOf(pathname) < 0 && (
         <>
           <Header />
-          <Sidenav />
+          {viewportWidth > 768 ? <Sidenav /> : <MobileNav />}
         </>
       )}
       <Routes>
