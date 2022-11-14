@@ -1,5 +1,4 @@
 import "../assets/styles/Auth.scss";
-import Main from "./../components/Main";
 import logo from "../assets/images/logo.png";
 import BaseInput from "./../components/BaseInput";
 import { useEffect, useState } from "react";
@@ -71,52 +70,50 @@ const Register = () => {
   }, [navigate, user]);
 
   return (
-    <Main>
-      <div className="auth_wrapper">
-        <form className="auth" onSubmit={handleRegister}>
-          <div className="auth_form_header">
-            <div>
-              <img src={logo} alt="" />
-              <h1>FriendZone</h1>
-            </div>
+    <main className="auth_wrapper">
+      <form className="auth" onSubmit={handleRegister}>
+        <div className="auth_form_header">
+          <div>
+            <img src={logo} alt="" />
+            <h1>FriendZone</h1>
           </div>
+        </div>
 
-          <div className="auth_form_body">
-            <BaseInput
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={formData.name}
-              setFormData={setFormData}
-              icon={null}
-              handleClick={undefined}
-            />
-            <BaseInput
-              type="email"
-              placeholder="Email"
-              name="email"
-              value={formData.email}
-              setFormData={setFormData}
-              icon={<MdOutlineMail />}
-              handleClick={undefined}
-            />
-            <BaseInput
-              type={`${!showPassword ? "password" : "text"}`}
-              placeholder="Password"
-              name="password"
-              value={formData.password}
-              setFormData={setFormData}
-              icon={!showPassword ? <IoMdEyeOff /> : <MdOutlineRemoveRedEye />}
-              handleClick={handleShowPassword}
-            />
-            <button type="submit">{loading ? "Loading..." : "Sign up"}</button>
-            <p>
-              Don't have an Account Yet? <Link to="/login">Login</Link>
-            </p>
-          </div>
-        </form>
-      </div>
-    </Main>
+        <div className="auth_form_body">
+          <BaseInput
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={formData.name}
+            setFormData={setFormData}
+            icon={null}
+            handleClick={undefined}
+          />
+          <BaseInput
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={formData.email}
+            setFormData={setFormData}
+            icon={<MdOutlineMail />}
+            handleClick={undefined}
+          />
+          <BaseInput
+            type={`${!showPassword ? "password" : "text"}`}
+            placeholder="Password"
+            name="password"
+            value={formData.password}
+            setFormData={setFormData}
+            icon={!showPassword ? <IoMdEyeOff /> : <MdOutlineRemoveRedEye />}
+            handleClick={handleShowPassword}
+          />
+          <button type="submit">{loading ? "Loading..." : "Sign up"}</button>
+          <p>
+            Don't have an Account Yet? <Link to="/login">Login</Link>
+          </p>
+        </div>
+      </form>
+    </main>
   );
 };
 

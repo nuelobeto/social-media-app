@@ -13,6 +13,7 @@
 body {
   max-width: 100vw;
   background: rgb(250, 250, 250);
+  font-family: "Josefin Sans", sans-serif;
 }
 
 li {
@@ -24,6 +25,8 @@ a {
 }
 
 button {
+  display: flex;
+  align-items: center;
   cursor: pointer;
   outline: none;
 }
