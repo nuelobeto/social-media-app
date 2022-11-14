@@ -29,11 +29,6 @@ const Sidenav = () => {
       icon: <TbMessages />,
     },
     {
-      name: "Saved",
-      url: "/saved",
-      icon: <IoMdHeart />,
-    },
-    {
       name: "Profile",
       url: "/profile",
       icon: (

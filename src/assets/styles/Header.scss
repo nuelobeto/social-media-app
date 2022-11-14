@@ -7,4 +7,76 @@ header {
   z-index: 9;
   background: #fff;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+  padding: 0 0 0 250px;
+}
+
+.header_wrapper {
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search_form {
+  position: relative;
+
+  input {
+    width: 300px;
+    height: 40px;
+    border-radius: 12px;
+    outline: none;
+    border: 1px solid var(--grey-line);
+    padding: 0 0 0 2.5rem;
+    font-size: 15px;
+    color: var(--pry-text);
+    background: rgba(134, 146, 166, 0.1);
+    &::placeholder {
+      color: grey;
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1rem;
+    font-size: 20px;
+    color: gray;
+  }
+}
+
+.header_items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 25px;
+
+  button {
+    justify-content: center;
+    padding: 7px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background: gray;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .header_user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: gray;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1000px) {
+  header {
+    padding: 0 0 0 80px;
+  }
 }
