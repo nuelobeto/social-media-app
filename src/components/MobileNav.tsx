@@ -49,7 +49,7 @@ const MobileNav = () => {
               <NavLink to={items.url}>{items.icon}</NavLink>
             </li>
           ))}
-          {viewportWidth < 660 && (
+          {viewportWidth <= 900 && (
             <li>
               <NavLink to="/trending">
                 <AiOutlineSearch />
