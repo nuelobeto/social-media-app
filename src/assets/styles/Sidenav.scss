@@ -10,10 +10,14 @@ aside {
 }
 
 .logo {
-  width: 50px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  font-size: 22px;
 
   img {
-    width: 100%;
+    width: 50px;
     display: block;
   }
 }
@@ -106,7 +110,7 @@ aside {
   }
 
   .logo {
-    margin: auto;
+    justify-content: center;
   }
 
   .nav_items {

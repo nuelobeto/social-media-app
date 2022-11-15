@@ -8,8 +8,11 @@ import { FaUserCircle } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 import { useAppDispatch } from "../app/hooks";
 import { logout } from "../features/authSlice";
+import { AiOutlineSearch } from "react-icons/ai";
+import { useEffect, useState } from "react";
 
 const Sidenav = () => {
+  const [viewportWidth, setviewPortWidth] = useState(window.innerWidth);
   const profilePic = null;
   const navList = [
     {
@@ -48,10 +51,19 @@ const Sidenav = () => {
     dispatch(logout());
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setviewPortWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+  }, [viewportWidth]);
+
   return (
     <aside>
       <div className="logo">
         <img src={logo} alt="" />
+        <span>friendZone</span>
       </div>
 
       <nav className="side_nav">
@@ -63,6 +75,13 @@ const Sidenav = () => {
               </NavLink>
             </li>
           ))}
+          {viewportWidth <= 900 && (
+            <li>
+              <NavLink to="/trending">
+                <AiOutlineSearch />
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
 

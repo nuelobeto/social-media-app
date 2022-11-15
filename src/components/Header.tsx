@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header>
       <div className="header_wrapper">
-        {viewportWidth < 768 && (
+        {viewportWidth <= 768 && (
           <div className="header_logo">
             <img src={logo} alt="" />
           </div>
@@ -41,7 +41,7 @@ const Header = () => {
           <button className="header_mode">
             <MdOutlineLightMode />
           </button>
-          {viewportWidth > 768 && (
+          {viewportWidth >= 768 && (
             <button className="header_notification">
               <IoMdNotifications />
             </button>
