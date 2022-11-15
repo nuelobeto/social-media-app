@@ -10,9 +10,29 @@
 }
 
 .stories {
-  height: 100px;
-  border: 1px solid black;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   border-radius: 8px;
+  padding: 1rem 0.5rem;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.story {
+  min-width: 62px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border: 2px solid grey;
+  border-radius: 50%;
+  background: var(--transparent-grey);
 }
 
 .posts {
@@ -24,14 +44,14 @@
 
 .post {
   height: 550px;
-  border: 1px solid black;
   border-radius: 8px;
+  background: grey;
 }
 
 .trending {
   width: 40%;
   height: 85vh;
-  border: 1px solid black;
+  background: var(--transparent-grey);
   border-radius: 8px;
   position: sticky;
   top: 12vh;
@@ -65,5 +85,20 @@
 @media (max-width: 448px) {
   .home_wrapper {
     padding: 0;
+  }
+
+  .stories {
+    padding: 1rem 0;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid var(--grey-line);
+  }
+
+  .story:first-child {
+    margin-left: 10px;
+  }
+
+  .post {
+    border-radius: 0;
   }
 }

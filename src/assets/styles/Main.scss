@@ -21,3 +21,9 @@
     padding: 0;
   }
 }
+
+@media (max-width: 448px) {
+  .main_dashboard_wrapper {
+    padding: 1rem 0;
+  }
+}

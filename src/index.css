@@ -8,6 +8,7 @@
   --grey-line: rgb(219, 219, 219);
   --pry-text: rgb(38, 38, 38);
   --pry-btn-color: rgb(0, 149, 246);
+  --transparent-grey: rgba(134, 146, 166, 0.1);
 }
 
 body {
