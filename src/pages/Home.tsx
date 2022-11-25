@@ -2,9 +2,18 @@ import Main from "./../components/Main";
 import "../assets/styles/Home.scss";
 import { FaRegHeart, FaRegComment } from "react-icons/fa";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
+import { useAppDispatch, useAppSelector } from "./../app/hooks";
+import { shuffleArray } from "../utils/arrayFormatter";
+import { daysPosted } from "./../utils/timeFormatter";
+import { useState } from "react";
+import { PostType } from "../types/postTypes";
 
 const Home = () => {
   const dummyData = [1, 2, 3, 4, 5, 6, 7, 8];
+  const { posts } = useAppSelector((state) => state.posts);
+  const [post, setPost] = useState<PostType | null>(null);
+
+  console.log({ post });
 
   return (
     <Main>
@@ -19,13 +28,18 @@ const Home = () => {
           </div>
 
           <div className="posts">
-            {dummyData.map((item, index) => (
-              <div key={index} className="post">
+            {posts.map((post) => (
+              <div key={post.id} className="post" onClick={() => setPost(post)}>
                 <div className="post_header">
                   <div className="post_owner">
-                    <div className="post_avi"></div>
+                    <div className="post_avi">
+                      <img src={post.userAvi} alt="" />
+                    </div>
                     <span>
-                      John_Doe • <span className="post_time">4d</span>
+                      {post.username} •{" "}
+                      <span className="post_time">
+                        {daysPosted(post.created_at)}
+                      </span>
                     </span>
                   </div>
                   <BiDotsHorizontalRounded className="post_menu" />
@@ -41,10 +55,7 @@ const Home = () => {
                     </button>
                   </div>
                   <div className="no_of_comments"></div>
-                  <div className="post_caption">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Ea, iure quisquam eaque qui inventore quo.
-                  </div>
+                  <div className="post_caption">{post.caption}</div>
                 </div>
                 <div className="add_comment">
                   <input type="text" placeholder="Add a comment..." />
