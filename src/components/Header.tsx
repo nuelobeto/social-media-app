@@ -4,7 +4,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { MdOutlineLightMode } from "react-icons/md";
 import { useEffect, useState } from "react";
-import logo from "../assets/images/logo.png";
+import { LOGO } from "./../assets/images";
 
 const Header = () => {
   const profilePic = null;
@@ -23,7 +23,7 @@ const Header = () => {
       <div className="header_wrapper">
         {viewportWidth <= 768 && (
           <div className="header_logo">
-            <img src={logo} alt="" />
+            <img src={LOGO} alt="" />
           </div>
         )}
 

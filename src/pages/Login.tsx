@@ -1,14 +1,14 @@
 import "../assets/styles/Auth.scss";
-import logo from "../assets/images/logo.png";
 import BaseInput from "./../components/BaseInput";
 import { useEffect, useState } from "react";
 import { MdOutlineMail, MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoMdEyeOff } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
-import { formValidator } from "./../helpers/formValidation";
+import { formValidator } from "../utils/formValidation";
 import { toast } from "react-toastify";
 import { useAppSelector, useAppDispatch } from "./../app/hooks";
 import { login } from "../features/authSlice";
+import { LOGO } from "./../assets/images";
 
 const Login = () => {
   const { users, user } = useAppSelector((state) => state.auth);
@@ -74,7 +74,7 @@ const Login = () => {
       <form className="auth" onSubmit={handleLogin}>
         <div className="auth_form_header">
           <div>
-            <img src={logo} alt="" />
+            <img src={LOGO} alt="" />
             <h1>FriendZone</h1>
           </div>
         </div>

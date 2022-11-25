@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./../features/authSlice";
 import storage from "redux-persist/lib/storage";
 import {
   persistReducer,
@@ -11,19 +10,27 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import authReducer from "./../features/authSlice";
+import postReducer from "../features/postSlice";
 
-const persistConfig = {
+const persistUsersConfig = {
   key: "users",
   storage,
   blacklist: ["user"],
 };
 
-// persistedReducer is telling redux toolkit to save the state in our machineReducer to local storage which we defined in persistConfig
-const persistedReducer = persistReducer(persistConfig, authReducer);
+const persistedPostsConfig = {
+  key: "posts",
+  storage,
+};
+
+const persistedUsersReducer = persistReducer(persistUsersConfig, authReducer);
+const persistedPostsReducer = persistReducer(persistedPostsConfig, postReducer);
 
 const store = configureStore({
   reducer: {
-    auth: persistedReducer,
+    auth: persistedUsersReducer,
+    posts: persistedPostsReducer,
   },
   middleware: (getDefaultMiddleware: any) =>
     getDefaultMiddleware({

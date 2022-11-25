@@ -1,5 +1,4 @@
 import "../assets/styles/Sidenav.scss";
-import logo from "../assets/images/logo.png";
 import { AiFillHome } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import { MdOutlineExplore } from "react-icons/md";
@@ -10,6 +9,7 @@ import { useAppDispatch } from "../app/hooks";
 import { logout } from "../features/authSlice";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useEffect, useState } from "react";
+import { LOGO } from "../assets/images";
 
 const Sidenav = () => {
   const [viewportWidth, setviewPortWidth] = useState(window.innerWidth);
@@ -62,7 +62,7 @@ const Sidenav = () => {
   return (
     <aside>
       <div className="logo">
-        <img src={logo} alt="" />
+        <img src={LOGO} alt="" />
         <span>friendZone</span>
       </div>
 

@@ -1,0 +1,11 @@
+export const LOGO = "/images/logo.png";
+export const USER1 = "/images/user1.jpg";
+export const USER2 = "/images/user2.jpg";
+export const USER3 = "/images/user3.jpg";
+export const USER4 = "/images/user4.jpg";
+export const USER5 = "/images/user5.jpg";
+export const USER6 = "/images/user6.jpg";
+export const USER7 = "/images/user7.jpg";
+export const USER8 = "/images/user8.jpg";
+export const USER9 = "/images/user9.jpg";
+export const USER10 = "/images/user10.jpg";
