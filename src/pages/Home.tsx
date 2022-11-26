@@ -3,10 +3,10 @@ import "../assets/styles/Home.scss";
 import { FaRegHeart, FaRegComment } from "react-icons/fa";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { useAppDispatch, useAppSelector } from "./../app/hooks";
-import { shuffleArray } from "../utils/arrayFormatter";
 import { daysPosted } from "./../utils/timeFormatter";
 import { useState } from "react";
 import { PostType } from "../types/postTypes";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Home = () => {
   const dummyData = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -33,7 +33,7 @@ const Home = () => {
                 <div className="post_header">
                   <div className="post_owner">
                     <div className="post_avi">
-                      <img src={post.userAvi} alt="" />
+                      <LazyLoadImage src={post.userAvi} alt="" />
                     </div>
                     <span>
                       {post.username} •{" "}
