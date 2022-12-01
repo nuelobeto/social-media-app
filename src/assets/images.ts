@@ -1,6 +1,9 @@
-export const LOGO = "/images/logo.png";
-export const USER1 = "/images/user1.jpg";
-export const USER2 = "/images/user2.jpg";
+export const LOGO =
+  "https://res.cloudinary.com/dk9bt9lkn/image/upload/v1669900264/friendzone/logo_w6xhe2.png";
+export const USER1 =
+  "https://res.cloudinary.com/dk9bt9lkn/image/upload/v1669900313/friendzone/user1_zzxg28.jpg";
+export const USER2 =
+  "https://res.cloudinary.com/dk9bt9lkn/image/upload/v1669900324/friendzone/user2_d63wod.jpg";
 export const USER3 = "/images/user3.jpg";
 export const USER4 = "/images/user4.jpg";
 export const USER5 = "/images/user5.jpg";
@@ -9,7 +12,8 @@ export const USER7 = "/images/user7.jpg";
 export const USER8 = "/images/user8.jpg";
 export const USER9 = "/images/user9.jpg";
 export const USER10 = "/images/user10.jpg";
-export const POST1 = "/images/post1.jpg";
+export const POST1 =
+  "https://res.cloudinary.com/dk9bt9lkn/image/upload/v1669900262/friendzone/post1_cmj2b2.jpg";
 export const POST2 = "/images/post2.png";
 export const POST3 = "/images/post3.jpg";
 export const POST4 = "/images/post4.jpg";
