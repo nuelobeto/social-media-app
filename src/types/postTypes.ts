@@ -5,6 +5,8 @@ export type PostType = {
   username: string;
   id: number;
   caption: string;
+  media: string;
+  likes: number;
 };
 
 export type InitialStateType = {
