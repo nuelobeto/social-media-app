@@ -12,7 +12,7 @@ import MobileNav from "./components/MobileNav";
 const AppRoutes = () => {
   const { user } = useAppSelector((state) => state.auth);
   const { pathname } = useLocation();
-  const pathExclusionArray = ["/", "/register", "/login"];
+  const pathExclusionArray = ["/register", "/login"];
   const [viewportWidth, setviewPortWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const AppRoutes = () => {
         </>
       )}
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route index path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route element={<ProtectedRoutes isAllowed={user} />}>

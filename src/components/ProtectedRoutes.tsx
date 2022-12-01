@@ -7,7 +7,7 @@ const ProtectedRoutes = (props: any) => {
 
   useEffect(() => {
     if (!isAllowed) {
-      navigate("/");
+      navigate("/login");
     }
   }, [isAllowed, navigate]);
 

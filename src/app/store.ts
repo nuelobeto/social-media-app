@@ -12,6 +12,7 @@ import {
 } from "redux-persist";
 import authReducer from "./../features/authSlice";
 import postReducer from "../features/postSlice";
+import commentReducer from "../features/commentSlice";
 
 const persistUsersConfig = {
   key: "users",
@@ -24,13 +25,23 @@ const persistedPostsConfig = {
   storage,
 };
 
+const persistedCommentsConfig = {
+  key: "comments",
+  storage,
+};
+
 const persistedUsersReducer = persistReducer(persistUsersConfig, authReducer);
 const persistedPostsReducer = persistReducer(persistedPostsConfig, postReducer);
+const persistedCommentsReducer = persistReducer(
+  persistedCommentsConfig,
+  commentReducer
+);
 
 const store = configureStore({
   reducer: {
     auth: persistedUsersReducer,
     posts: persistedPostsReducer,
+    comments: persistedCommentsReducer,
   },
   middleware: (getDefaultMiddleware: any) =>
     getDefaultMiddleware({
